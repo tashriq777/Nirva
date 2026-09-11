@@ -15,8 +15,10 @@ swap-in-ready for Phase 2).
 | `GET /services` | `ServiceController@index` | `Services` (AI-Powered BPO + BPO Services sections) |
 | `GET /services/{slug}` | `ServiceController@show` | `ServiceDetail` (overview, benefits, included, process, FAQs, related) |
 | `GET /about`    | `AboutController@index`   | `About`   |
-| `GET /contact`  | `ContactController@index` | `Contact` (`?service=slug` pre-selects the dropdown) |
+| `GET /contact`  | `ContactController@index` | `Contact` (simple form; `?service=slug` pre-selects the dropdown) |
 | `POST /contact` | `ContactController@store`| — (redirects back with flash success) |
+| `GET /get-started` | `GetStartedController@index` | `GetStarted` (qualifying form: size, service checkboxes, pain point, budget, timeline) |
+| `POST /get-started` | `GetStartedController@store` | — (redirects back with flash success) |
 | `GET /sitemap.xml` | closure → `sitemap` view | — (pages + all 8 service detail URLs) |
 
 Page content (services, mission/vision, roadmap, contact placeholders) lives in
@@ -77,6 +79,10 @@ route under `php artisan serve` and most static hosts.
 - **Phase 2** (DB + email + admin) is a small diff, documented in
   `ContactController@store`: add a `leads` migration/model, call
   `Lead::create($request->validated())`, and `Mail::to(...)->send(...)`.
+- The **Get Started** page (`GetStartedController`, `GetStartedRequest`,
+  `GetStarted.tsx`) follows the same pattern with a longer qualifying form
+  (company size, service checkboxes, pain point, budget, timeline); its Phase 2
+  column mapping is documented in `GetStartedController@store`.
 
 ## Tests & Code Style
 
@@ -91,12 +97,14 @@ npx eslint resources/js --ext .js,.jsx,.ts,.tsx   # React/TS style check
 ```
 app/Http/Controllers/HomeController.php | ServiceController.php
                         AboutController.php | ContactController.php
-app/Http/Requests/ContactRequest.php
+                        GetStartedController.php
+app/Http/Requests/ContactRequest.php | GetStartedRequest.php
 config/nirva.php                 # shared marketing copy (services, mission, roadmap…)
 resources/js/Layouts/AppLayout.tsx
 resources/js/Components/Nav.tsx | Footer.tsx | ServiceCard.tsx
                         ServiceIcon.tsx | NetworkBackground.tsx
-resources/js/Pages/Home.tsx | Services.tsx | ServiceDetail.tsx | About.tsx | Contact.tsx
+resources/js/Pages/Home.tsx | Services.tsx | ServiceDetail.tsx | About.tsx
+                        Contact.tsx | GetStarted.tsx
 resources/js/types/nirva.ts
 tests/Feature/NirvaPagesTest.php # pages render, detail pages + 404, preselect, validation, sitemap
 ```

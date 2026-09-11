@@ -114,7 +114,7 @@ export default function About({
 
                     <div className="mt-12 text-center">
                         <Link
-                            href="/contact"
+                            href="/get-started"
                             className="inline-block rounded-lg bg-cyan-400 px-8 py-3 text-sm font-bold text-[#0B1120] transition hover:bg-cyan-300"
                         >
                             Work With Us

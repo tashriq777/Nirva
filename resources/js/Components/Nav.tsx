@@ -45,7 +45,7 @@ export default function Nav() {
                         </Link>
                     ))}
                     <Link
-                        href="/contact"
+                        href="/get-started"
                         className="rounded-lg bg-cyan-400 px-4 py-2 text-sm font-bold text-[#0B1120] transition hover:bg-cyan-300"
                     >
                         Get Started
@@ -99,7 +99,7 @@ export default function Nav() {
                         </Link>
                     ))}
                     <Link
-                        href="/contact"
+                        href="/get-started"
                         onClick={() => setOpen(false)}
                         className="mt-2 block rounded-lg bg-cyan-400 px-3 py-2 text-center text-sm font-bold text-[#0B1120]"
                     >

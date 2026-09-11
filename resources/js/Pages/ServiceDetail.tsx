@@ -182,7 +182,7 @@ export default function ServiceDetail({
                             tailored plan for your team.
                         </p>
                         <Link
-                            href={`/contact?service=${service.slug}`}
+                            href={`/get-started?service=${service.slug}`}
                             className="mt-6 inline-block rounded-lg bg-cyan-400 px-8 py-3 text-sm font-bold text-[#0B1120] transition hover:bg-cyan-300"
                         >
                             Get a Quote

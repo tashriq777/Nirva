@@ -88,7 +88,7 @@ return [
                 'Higher CSAT from zero wait times',
                 'Up to 70% of tickets resolved without humans',
                 'Consistent, on-brand answers every time',
-                'Support in your customers\u2019 languages',
+                'Support in your customers’ languages',
                 'Every conversation logged and searchable',
             ],
             'included' => [
@@ -161,7 +161,7 @@ return [
             'description' => 'Targeted prospect lists, data enrichment, and qualified pipeline building.',
             'icon' => 'target',
             'overview' => [
-                'Pipeline is the lifeblood of growth, yet list building, enrichment, and verification quietly consume your closers\u2019 week. Stale data means bounced emails, wrong titles, and SDRs researching instead of selling — while competitors work cleaner lists.',
+                'Pipeline is the lifeblood of growth, yet list building, enrichment, and verification quietly consume your closers’ week. Stale data means bounced emails, wrong titles, and SDRs researching instead of selling — while competitors work cleaner lists.',
                 'NIRVA dedicated researchers build and maintain your database: ICP-defined prospect lists, contact enrichment, email verification, segmentation, and direct CRM upload. Optional outreach support keeps sequences fed with fresh, qualified records on a weekly rhythm.',
                 'We start from your best-customer profile and tech/firmographic filters, deliver a sample batch for calibration, then run weekly list drops with quality sampling. A tight feedback loop on bounce rates and meeting quality keeps the data — and your sender reputation — healthy.',
             ],
@@ -409,6 +409,26 @@ return [
         ['phase' => 'Phase 5', 'title' => 'CRM Integration'],
         ['phase' => 'Phase 6', 'title' => 'Predictive Analytics'],
         ['phase' => 'Phase 7', 'title' => 'Global Expansion'],
+    ],
+
+    'getStarted' => [
+        'companySizes' => ['1–10', '11–50', '51–200', '200+'],
+        'painPoints' => [
+            'High operational costs',
+            'Slow response times / coverage gaps',
+            'Inconsistent service quality',
+            'Team overloaded — can’t scale',
+            'Documentation / admin burden',
+            'Something else',
+        ],
+        'budgets' => [
+            'Under $1,000 / month',
+            '$1,000 – $5,000 / month',
+            '$5,000 – $20,000 / month',
+            '$20,000+ / month',
+            'Prefer not to say',
+        ],
+        'timelines' => ['ASAP', '1–3 months', 'Just exploring'],
     ],
 
     // Placeholders — owner to supply real details before launch.

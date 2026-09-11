@@ -103,6 +103,66 @@ class NirvaPagesTest extends TestCase
         );
     }
 
+    public function test_get_started_page_renders(): void
+    {
+        $response = $this->get('/get-started');
+
+        $response->assertOk();
+        $response->assertInertia(fn ($page) => $page
+            ->component('GetStarted')
+            ->has('services')
+            ->has('options')
+            ->where('selectedServices', [])
+        );
+    }
+
+    public function test_get_started_page_preselects_service_from_query(): void
+    {
+        $response = $this->get('/get-started?service=ai-cold-calling');
+
+        $response->assertOk();
+        $response->assertInertia(fn ($page) => $page
+            ->component('GetStarted')
+            ->where('selectedServices', ['ai-cold-calling'])
+        );
+    }
+
+    public function test_get_started_page_ignores_unknown_service_slug(): void
+    {
+        $response = $this->get('/get-started?service=not-a-service');
+
+        $response->assertOk();
+        $response->assertInertia(fn ($page) => $page
+            ->component('GetStarted')
+            ->where('selectedServices', [])
+        );
+    }
+
+    public function test_get_started_store_validates(): void
+    {
+        $response = $this->post('/get-started', []);
+
+        $response->assertInvalid(['name', 'email', 'company', 'company_size', 'services', 'pain_point', 'timeline']);
+    }
+
+    public function test_get_started_store_accepts_valid_submission(): void
+    {
+        $response = $this->post('/get-started', [
+            'name' => 'Jane Cooper',
+            'email' => 'jane@company.com',
+            'company' => 'Acme Inc.',
+            'company_size' => '11–50',
+            'services' => ['AI Customer Support', 'Lead Generation'],
+            'pain_point' => 'Slow response times / coverage gaps',
+            'budget' => 'Prefer not to say',
+            'timeline' => '1–3 months',
+            'message' => 'Looking to outsource tier-1 support.',
+        ]);
+
+        $response->assertRedirect(route('get-started.index'));
+        $response->assertSessionHas('success');
+    }
+
     public function test_contact_store_validates(): void
     {
         $response = $this->post('/contact', []);
@@ -134,5 +194,6 @@ class NirvaPagesTest extends TestCase
         $response->assertHeader('Content-Type', 'text/xml; charset=UTF-8');
         $response->assertSee('/services/ai-cold-calling', false);
         $response->assertSee('/services/lead-generation', false);
+        $response->assertSee('/get-started', false);
     }
 }

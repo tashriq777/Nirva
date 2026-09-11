@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\GetStartedController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
@@ -17,6 +18,8 @@ Route::get('/services/{slug}', [ServiceController::class, 'show'])
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/get-started', [GetStartedController::class, 'index'])->name('get-started.index');
+Route::post('/get-started', [GetStartedController::class, 'store'])->name('get-started.store');
 
 // SEO: dynamic sitemap covering pages + every service detail page.
 Route::get('/sitemap.xml', function () {

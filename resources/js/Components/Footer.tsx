@@ -55,6 +55,14 @@ export default function Footer() {
                                 Contact
                             </Link>
                         </li>
+                        <li>
+                            <Link
+                                href="/get-started"
+                                className="text-slate-400 hover:text-cyan-300"
+                            >
+                                Get Started
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 <div>

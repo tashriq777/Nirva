@@ -39,7 +39,7 @@ export default function Home({ hero, services, whyChoose, meta }: Props) {
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4">
                         <Link
-                            href="/contact"
+                            href="/get-started"
                             className="rounded-lg bg-cyan-400 px-6 py-3 text-sm font-bold text-[#0B1120] transition hover:bg-cyan-300"
                         >
                             Get Started
@@ -119,10 +119,10 @@ export default function Home({ hero, services, whyChoose, meta }: Props) {
                         + outsourcing plan for your team.
                     </p>
                     <Link
-                        href="/contact"
+                        href="/get-started"
                         className="mt-8 inline-block rounded-lg bg-cyan-400 px-8 py-3 text-sm font-bold text-[#0B1120] transition hover:bg-cyan-300"
                     >
-                        Contact NIRVA
+                        Get Started
                     </Link>
                 </div>
             </section>
