@@ -6,13 +6,15 @@ services:
     dockerfilePath: ./Dockerfile
     envVars:
       - key: APP_KEY
-        sync: false
+        sync: false          # you paste this in manually — see steps below
       - key: APP_ENV
         value: production
       - key: APP_DEBUG
         value: "false"
       - key: APP_LOCALE
         value: en
+      - key: APP_URL
+        value: https://nirva-2xjv.onrender.com
       - key: DB_CONNECTION
         value: sqlite
       - key: DB_DATABASE
