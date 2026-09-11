@@ -6,7 +6,7 @@ services:
     dockerfilePath: ./Dockerfile
     envVars:
       - key: APP_KEY
-        sync: false          # you paste this in manually — see steps below
+        sync: false
       - key: APP_ENV
         value: production
       - key: APP_DEBUG
@@ -17,7 +17,3 @@ services:
         value: sqlite
       - key: DB_DATABASE
         value: /var/www/html/database/database.sqlite
-    disk:
-      name: nirva-sqlite
-      mountPath: /var/www/html/database
-      sizeGB: 1
