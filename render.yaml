@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: nirva
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: APP_KEY
+        sync: false          # you paste this in manually — see steps below
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_LOCALE
+        value: en
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: DB_DATABASE
+        value: /var/www/html/database/database.sqlite
+    disk:
+      name: nirva-sqlite
+      mountPath: /var/www/html/database
+      sizeGB: 1
